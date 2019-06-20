@@ -1,0 +1,90 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{/main.css}" href="../static/main.css">
+
+    <title>Hello, world!</title>
+</head>
+<body>
+
+<div class="container">
+    <div class="jumbotron jumbo-home">
+        <div class="container text-center text-white">
+            <h1 class="display-3">Foodie</h1>
+            <p>Witaj w naszej restauracji. Zamawiaj co chcesz i ile chcesz, a my przygotujemy to dla Ciebie.</p>
+            <a href="#" th:href="@{/order}">Zamówienie</a>
+        </div>
+    </div>
+    <div th:remove="all-but-first">
+        <div class="col-6 offset-3 shadow-lg p-3 mb-5 bg-white rounded">
+            <div th:each="item:${items}" th:object="${item}" class="media">
+                <i class="fas fa-utensils fa-7x"></i>
+                <div class="media-body">
+                    <a href="#" th:href="@{|danie/${item.name.toLowerCase().replace(' ','-')}|}">
+                        <h5 th:text="|*{name} (*{#numbers.formatDecimal(price,1,2)}zł)|"> Nagłówek</h5>
+                    </a>
+                    <div th:text="*{shortDescription}">
+                        Opis skaaksmkda ksda daksd kas dldk sdklasdk slak d dwewdwed dw wd dwekew kwd kw dkew dekw dewk dwke
+                        dwked wked wke dwek dwk wkwed
+                    </div>
+                </div>
+            </div>
+            <a href="#" class="btn btn-block btn-primary btn-primary"><span class="glyphicon glyphicon-plus"></span> Dodaj do zamówienia</a>
+        </div>
+
+        <div class="col-6 offset-3 shadow-lg p-3 mb-5 bg-white rounded">
+            <div class="media">
+                <i class="fas fa-utensils fa-7x"></i>
+                <div class="media-body">
+                    <a href="#">
+                        <h5> Nagłówek</h5>
+                    </a>
+                    <div>
+                        Opis skaaksmkda ksda daksd kas dldk sdklasdk slak d dwewdwed dw wd dwekew kwd kw dkew dekw dewk dwke
+                        dwked wked wke dwek dwk wkwed
+                    </div>
+                </div>
+            </div>
+            <a href="#" class="btn btn-block btn-primary btn-primary"><span class="glyphicon glyphicon-plus"></span> Dodaj do zamówienia</a>
+        </div>
+
+        <div class="col-6 offset-3 shadow-lg p-3 mb-5 bg-white rounded">
+            <div class="media">
+                <i class="fas fa-utensils fa-7x"></i>
+                <div class="media-body">
+                    <a href="#">
+                        <h5> Nagłówek</h5>
+                    </a>
+                    <div>
+                        Opis skaaksmkda ksda daksd kas dldk sdklasdk slak d dwewdwed dw wd dwekew kwd kw dkew dekw dewk dwke
+                        dwked wked wke dwek dwk wkwed
+                    </div>
+                </div>
+            </div>
+            <a href="#" class="btn btn-block btn-primary btn-primary"><span class="glyphicon glyphicon-plus"></span> Dodaj do zamówienia</a>
+        </div>
+
+    </div>
+</div>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/fd696c5aa7.js"></script>
+</body>
+</html>
